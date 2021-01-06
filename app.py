@@ -23,16 +23,19 @@ class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
 @app.route("/")
 def index():
+    
     return render_template('index.html');
 
 @app.route('/get_expression')
 def background_process_test():
     cap = cv2.VideoCapture(0)
     notFounding = True
+    print('3333333333333')
     while notFounding:
         ret, frame = cap.read()
         labels = []
-        faces = face_classifier.detectMultiScale(frame,1.3,5)
+        gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+        faces = face_classifier.detectMultiScale(gray,1.3,5)
         for (x,y,w,h) in faces:
             cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
             roi_gray = gray[y:y+h,x:x+w]
@@ -56,8 +59,6 @@ def background_process_test():
 
 
      
-    
-    
 
 if __name__ == '__main__': 
     app.run() 
