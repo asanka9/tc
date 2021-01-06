@@ -32,8 +32,7 @@ def background_process_test():
     while notFounding:
         ret, frame = cap.read()
         labels = []
-        gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-        faces = face_classifier.detectMultiScale(gray,1.3,5)
+        faces = face_classifier.detectMultiScale(frame,1.3,5)
         for (x,y,w,h) in faces:
             cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
             roi_gray = gray[y:y+h,x:x+w]
