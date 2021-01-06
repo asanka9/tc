@@ -28,7 +28,7 @@ def index():
 
 @app.route('/get_expression')
 def background_process_test():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture()
     notFounding = True
     print('3333333333333')
     while notFounding:
