@@ -7,7 +7,7 @@ Created on Thu Nov 26 11:12:26 2020
 
 from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
 import cv2
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 import pickle
 from keras.preprocessing import image
 import numpy as np
